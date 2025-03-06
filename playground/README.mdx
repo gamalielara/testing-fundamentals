@@ -1,0 +1,32 @@
+# Intentions
+
+<EpicVideo url="https://www.epicweb.dev/workshops/testing-fundamentals/principles/write-an-intentional-test" />
+
+You have a `greet` function that should greet the user by their name. That's the _intention_ behind it. And here's its implementation:
+
+```ts filename=greet.js nocopy nonumber
+function greet(name: string) {
+	return `Hello, ${name}!`
+}
+```
+
+👨‍💼 Now your job is to add an automated test for the <code>greet</code> function
+(you can put it in the same <code>greet.ts</code> file) so you can run <code>npx tsx
+greet.ts</code> any time you want to check whether that functions works as
+intended.
+
+As a reminder, this is what any automated test comes down to:
+
+```ts
+// Run the code and get the *actual* result.
+let result = code(...args)
+
+// Compare the actual with the expected results.
+if (result !== expected) {
+	// Alert us if the two results don't match
+	// as that likely means a bug in the code.
+	throw new Error(`Expected "${expected}" but got ${result}`)
+}
+```
+
+<callout-info>Remember that an automated test is a comparison between the actual and the expected values of the program.</callout-info>
